@@ -1,11 +1,11 @@
-import React,{ useEffect, useState } from 'react'
+import React,{   useState } from 'react'
 import { Container,Grid,Grow,Paper,AppBar, TextField, Button } from '@material-ui/core'
 import { useNavigate, useLocation } from 'react-router-dom';
  import ChipInput from "material-ui-chip-input";    
 import { useDispatch } from 'react-redux';
 import Posts from '../posts/posts';
 import Form from '../forms/forms';
-import { getPosts, getPostsBySearch } from '../../actions/posts';
+import { getPostsBySearch } from '../../actions/posts';
 import Pagination from '../pagination';
 import useStyles from './styles';
 
@@ -52,7 +52,7 @@ const Home = () => {
 
       <Grow in>
           <Container maxWidth="xl">
-            <Grid container className={classes.mainContainer} justifyContent="space-between" alignitems="stretch" spacing={3} className={classes.gridContainer}>
+            <Grid container   justifyContent="space-between" alignitems="stretch" spacing={3} className={classes.gridContainer}>
               <Grid item xs={12} sm={6} md={9}>
                 <Posts setCurrentId={setCurrentId} />
               </Grid>

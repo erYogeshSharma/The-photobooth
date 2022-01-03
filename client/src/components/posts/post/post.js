@@ -12,7 +12,29 @@ import {useNavigate} from 'react-router-dom';
 import useStyles from './styles';
 
 
-const Post = ({ post, setCurrentId }) => {   //props
+
+const Post = ({ post, setCurrentId }) => {
+        //props
+     function truncateString(num, str) {
+           
+    
+          if (num > str.length){ 
+               // if num is greater than string length (in you case 11 is not greater than 43
+            str.slice(0,num);
+            return str.append("...");
+          } 
+
+          else if (num < str.length) {   // or if the num is less than 3 (11 is not less than 3)
+             var trunk = str.slice(0,num);
+
+               return(trunk + "...")
+          
+          } 
+          else { // do if no if was matched (and here we are)
+            return "This is not a string";
+          }
+        
+        }
 
      const dispatch = useDispatch();
      const classes = useStyles();
@@ -57,7 +79,7 @@ const Post = ({ post, setCurrentId }) => {   //props
                </div>
                <Typography className={classes.title} variant='h5' gutterBottom > {post.title} </Typography>
                <CardContent>
-                    <Typography variant='body2' color="textSecondary" component="p"> {post.message} </Typography>
+                    <Typography variant='body2' color="textSecondary" component="p"> { truncateString(30,post.message )} </Typography>
 
                </CardContent>
                <CardActions className={classes.cardActions} >

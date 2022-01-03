@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
 import PostDetails from "./components/PostDetails/PostDetails";
 import useStyles from './styles'
+import Footer from './components/footer/footer'
 
 
 
@@ -34,9 +35,9 @@ const App = () => {
           <Route path='/posts/:id' exact element={<PostDetails />} />
 
           <Route path='/auth' exact element={ (!user ? <Auth /> : <Navigate to ="/posts"/> )} />
-
+          
         </Routes>
-
+      <Footer/>
       </Container>
     </BrowserRouter>
   )
